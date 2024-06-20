@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .testimonial-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .testimonial-container p {
+            font-size: 16px;
+            color: #333;
+        }
+        .testimonial-container .author {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="testimonial-container" id="testimonial">
+        <p id="testimonialText">This is a fantastic service that has helped me immensely!</p>
+        <div class="author" id="author">- John Doe</div>
+       
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const testimonials = [
+                {
+                    text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente deserunt ratione blanditiis repudiandae itaque, vero sunt cumque id illum optio!",
+                    author: "Ishan Roka"
+                },
+                {
+                    text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente deserunt ratione blanditiis repudiandae itaque, vero sunt cumque id illum optio!",
+                    author: "Roka Ishan"
+                },
+                {
+                    text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente deserunt ratione blanditiis repudiandae itaque, vero sunt cumque id illum optio!",
+                    author: "Rajesh Hamal"
+                },
+                {
+                    text: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente deserunt ratione blanditiis repudiandae itaque, vero sunt cumque id illum optio!",
+                    author: "Ronaldo"
+                }
+            ];
+        
+            let currentTestimonialIndex = 0;
+        
+            function displayTestimonial(index) {
+                const testimonialText = document.getElementById("testimonialText");
+                const author = document.getElementById("author");
+        
+                testimonialText.textContent = testimonials[index].text;
+                author.textContent = `- ${testimonials[index].author}`;
+            }
+        
+            function nextTestimonial() {
+                currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+                displayTestimonial(currentTestimonialIndex);
+            }
+        
+            setInterval(nextTestimonial, 5000);
+        
+            displayTestimonial(currentTestimonialIndex);
+        });
+        
+    </script>
+</body>
+</html>
